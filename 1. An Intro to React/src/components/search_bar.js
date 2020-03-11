@@ -8,6 +8,12 @@ export class SearchBar extends Component {
     }
 
     render() {
-        return <input onChange={event => console.log(event.target.value)} />;
+        return (
+            <div>
+                {/* Never use this.state.term = ..., this.setState() calls various functions inside of it for React to handle */}
+                <input onChange={event => this.setState({ term: event.target.value })} />
+                Value of the input: {this.state.term}
+            </div>
+        );
     }
 }
